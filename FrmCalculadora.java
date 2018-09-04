@@ -64,7 +64,12 @@ public class FrmCalculadora extends JFrame implements ActionListener{
     c.add(lbltotal);
     c.add(txttotal);
     c.add(btlimpar);
-    btsomar.addActionListener(this);   
+    btsomar.addActionListener(this);
+    btsubtrair.addActionListener(this);
+    btmultiplicar.addActionListener(this);
+    btdividir.addActionListener(this);
+    btlimpar.addActionListener(this);
+    
     setVisible(true);
       
     }
@@ -75,16 +80,30 @@ public void actionPerformed(ActionEvent a){
 double numero1 = Double.parseDouble(txtnumero1.getText());
 double numero2 = Double.parseDouble(txtnumero2.getText());
 double resultado;
-/*if (btsomar==a.getSource()){
+
+if (btsubtrair == a.getSource()){
+    resultado = numero1-numero2;
+    txttotal.setText(resultado+"");
+    }  
+
+if (btsomar==a.getSource()){
     resultado = numero1+numero2;
     txttotal.setText(resultado+"");
-}*/
-  if (btsubtrair == a.getSource()){
-    resultado = numero1-numero2;
-     txttotal.setText(resultado+"");
-    }    
-    
-    
+}
+if (btmultiplicar==a.getSource()){
+  resultado=numero1*numero2;
+  txttotal.setText(resultado+"");
+}
+if (btdividir==a.getSource()){
+  resultado=numero1/numero2;
+  txttotal.setText(resultado+"");
+}
+if (btlimpar == a.getSource()){
+    txtnumero1.setText("");
+    txtnumero2.setText("");
+    txttotal.setText("");
+}
+
 }
 
 }
